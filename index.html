@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Similarity of Polygons - Complete Worksheet | Mr Ahmed Abd E Motaal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=STIX+Two+Math&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+    <style>
+        :root {
+            --bg-gradient-start: #f0f7ff;
+            --bg-gradient-mid: #e0f2fe;
+            --bg-gradient-end: #dbeafe;
+            --card-bg: rgba(255, 255, 255, 0.90);
+            --card-border: #bae6fd;
+            --primary-blue: #0284c7;
+            --primary-dark: #0369a1;
+            --accent-navy: #1e3a8a;
+            --accent-magenta: #b91c7c;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --line-color: #94a3b8;
+            --solution-bg: #f0fdf4;
+            --solution-border: #86efac;
+            --solution-text: #14532d;
+            --shadow-soft: 0 10px 25px -5px rgba(2, 132, 199, 0.08), 0 8px 10px -6px rgba(2, 132, 199, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 50%, var(--bg-gradient-end) 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 1.5rem 2rem;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        header {
+            width: 100%;
+            max-width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--card-border);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .header-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1.15rem;
+            border-bottom: 2px dashed #bae6fd;
+        }
+
+        .worksheet-title-group h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--accent-navy);
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .worksheet-title-group p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 0.2rem;
+        }
+
+        .branding-badges {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .teacher-badge {
+            background: linear-gradient(135deg, #0284c7 0%, #1e3a8a 100%);
+            color: #ffffff;
+            padding: 0.65rem 1.35rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.96rem;
+            letter-spacing: 0.02em;
+            box-shadow: 0 4px 0 #0f172a, 0 6px 12px rgba(2, 132, 199, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            white-space: nowrap;
+        }
+
+        .youtube-badge {
+            background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.65rem 1.3rem;
+            border-radius: 9999px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
+            border: 1px solid #b91c1c;
+            box-shadow: 0 4px 0 #991b1b, 0 6px 14px rgba(220, 38, 38, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            white-space: nowrap;
+            transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background 0.15s ease;
+        }
+
+        .youtube-badge:hover {
+            background: linear-gradient(180deg, #f87171 0%, #dc2626 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 0 #991b1b, 0 8px 16px rgba(220, 38, 38, 0.38);
+        }
+
+        .youtube-badge:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #991b1b, 0 2px 4px rgba(220, 38, 38, 0.25);
+        }
+
+        .youtube-badge svg {
+            width: 20px;
+            height: 20px;
+            fill: #ffffff;
+            flex-shrink: 0;
+        }
+
+        .student-info-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            padding-top: 1.15rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent-navy);
+        }
+
+        .info-field {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .info-field.name-field {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .info-line {
+            flex: 1;
+            border-bottom: 2px dotted #64748b;
+            height: 1.4rem;
+            display: inline-block;
+            min-width: 200px;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .section-title {
+            width: 100%;
+            max-width: 100%;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 0.9rem 1.5rem;
+            border-radius: 16px;
+            border: 1.5px solid #bae6fd;
+            box-shadow: 0 2px 6px rgba(2, 132, 199, 0.06);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title-text {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+
+        .section-title .arrow-icon {
+            color: #0284c7;
+            font-size: 1.1rem;
+        }
+
+        .toolbar-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .btn-3d {
+            appearance: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.92rem;
+            padding: 0.65rem 1.25rem;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background-color 0.15s ease;
+            user-select: none;
+        }
+
+        .btn-3d.primary {
+            background: linear-gradient(180deg, #0ea5e9 0%, #0284c7 100%);
+            color: #ffffff;
+            border: 1px solid #0369a1;
+            box-shadow: 0 4px 0 #0369a1, 0 6px 12px rgba(2, 132, 199, 0.25);
+        }
+
+        .btn-3d.primary:hover {
+            background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 0 #0369a1, 0 8px 15px rgba(2, 132, 199, 0.3);
+        }
+
+        .btn-3d.primary:active,
+        .btn-3d.primary.active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #0369a1, 0 2px 4px rgba(2, 132, 199, 0.2);
+        }
+
+        .btn-3d.emerald {
+            background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+            border: 1px solid #047857;
+            box-shadow: 0 4px 0 #047857, 0 6px 12px rgba(16, 185, 129, 0.25);
+        }
+
+        .btn-3d.emerald:hover {
+            background: linear-gradient(180deg, #34d399 0%, #059669 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 0 #047857, 0 8px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-3d.emerald:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #047857, 0 2px 4px rgba(16, 185, 129, 0.2);
+        }
+
+        .questions-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .question-card {
+            width: 100%;
+            max-width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--card-border);
+            border-radius: 20px;
+            padding: 1.75rem 2rem;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            transition: border-color 0.2s ease;
+        }
+
+        .question-card:hover {
+            border-color: #7dd3fc;
+        }
+
+        .q-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .q-number {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #fff1f2;
+            border: 2px solid #be123c;
+            color: #be123c;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(190, 18, 60, 0.15);
+        }
+
+        .self-eval-tag {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+            box-shadow: 0 2px 4px rgba(217, 119, 6, 0.25);
+        }
+
+        .q-prompt-intro {
+            font-size: 1.12rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .sub-questions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            margin: 0.75rem 0 1.15rem 0;
+            padding-left: 0.5rem;
+        }
+
+        .sub-q-item {
+            font-size: 1.12rem;
+            font-weight: 600;
+            color: #0f172a;
+            display: flex;
+            align-items: baseline;
+            gap: 0.55rem;
+        }
+
+        .sub-q-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            background: #e0f2fe;
+            border: 1.5px solid #0284c7;
+            color: #0369a1;
+            font-size: 0.85rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .figure-container {
+            width: 100%;
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1.25rem;
+            margin: 0.85rem 0 1.25rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.02);
+        }
+
+        .geometry-svg {
+            width: 100%;
+            max-width: 760px;
+            height: auto;
+            overflow: visible;
+        }
+
+        .math-label {
+            font-family: 'STIX Two Math', 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: 700;
+            fill: #0f172a;
+            font-size: 18px;
+        }
+
+        .measure-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            fill: #0f172a;
+            font-size: 14.5px;
+        }
+
+        .q-main-question {
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1.15rem;
+            padding-left: 0.25rem;
+        }
+
+        .choices-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.9rem 1.5rem;
+            margin-bottom: 1.35rem;
+        }
+
+        @media (min-width: 900px) {
+            .choices-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 540px) {
+            .choices-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .choice-btn {
+            background: #ffffff;
+            border: 2px solid #cbd5e1;
+            border-radius: 14px;
+            padding: 0.75rem 1.1rem;
+            font-size: 1.08rem;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            transition: all 0.15s ease;
+            text-align: left;
+            box-shadow: 0 3px 0 #cbd5e1;
+        }
+
+        .choice-btn:hover {
+            border-color: #0284c7;
+            background: #f0f9ff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 0 #7dd3fc;
+        }
+
+        .choice-btn.selected-correct {
+            background: #dcfce7;
+            border-color: #16a34a;
+            color: #14532d;
+            box-shadow: 0 3px 0 #16a34a;
+        }
+
+        .choice-btn.selected-wrong {
+            background: #fee2e2;
+            border-color: #dc2626;
+            color: #7f1d1d;
+            box-shadow: 0 3px 0 #dc2626;
+        }
+
+        .choice-letter {
+            font-weight: 800;
+            color: #0369a1;
+        }
+
+        .choice-status-badge {
+            margin-left: auto;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .workspace-label {
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .workspace {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 0.5rem 1.25rem 0.85rem 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .writing-line {
+            width: 100%;
+            height: 2rem;
+            border-bottom: 1.5px dashed var(--line-color);
+        }
+
+        .solution-box {
+            display: none;
+            margin-top: 1.25rem;
+            background: var(--solution-bg);
+            border: 2px solid var(--solution-border);
+            border-radius: 16px;
+            padding: 1.35rem 1.6rem;
+            color: var(--solution-text);
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        .solution-box.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .solution-header {
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: #15803d;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1.5px dashed #86efac;
+            padding-bottom: 0.5rem;
+        }
+
+        .solution-steps {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            font-size: 1.05rem;
+        }
+
+        .solution-steps li {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .solution-steps li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        .final-answer-pill {
+            display: inline-block;
+            margin-top: 0.75rem;
+            background: #16a34a;
+            color: #ffffff;
+            font-weight: 800;
+            padding: 0.4rem 1.1rem;
+            border-radius: 999px;
+            font-size: 1rem;
+        }
+
+        footer {
+            width: 100%;
+            max-width: 100%;
+            margin-top: 2rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--card-border);
+            border-radius: 20px;
+            padding: 1.25rem 2rem;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-info {
+            font-weight: 700;
+            color: var(--accent-navy);
+            font-size: 0.98rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 12mm;
+            }
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+                color: #000000 !important;
+            }
+            header, footer {
+                box-shadow: none !important;
+                border: 2px solid #0284c7 !important;
+                padding: 1rem 1.25rem !important;
+                margin-bottom: 1rem !important;
+            }
+            .teacher-badge {
+                background: #f0f9ff !important;
+                color: #0f172a !important;
+                border: 1.5px solid #0284c7 !important;
+                box-shadow: none !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .youtube-badge {
+                background: #fff1f2 !important;
+                color: #be123c !important;
+                border: 1.5px solid #be123c !important;
+                box-shadow: none !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .youtube-badge svg {
+                fill: #be123c !important;
+            }
+            .toolbar-actions,
+            .card-actions .btn-3d {
+                display: none !important;
+            }
+            .question-card {
+                box-shadow: none !important;
+                border: 1.5px solid #94a3b8 !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin-bottom: 1.25rem !important;
+                padding: 1.25rem !important;
+            }
+            .choices-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 0.6rem !important;
+            }
+            .choice-btn {
+                box-shadow: none !important;
+                border: 1px solid #64748b !important;
+                padding: 0.45rem 0.75rem !important;
+            }
+            .writing-line {
+                height: 1.85rem !important;
+                border-bottom: 1px dashed #64748b !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Locked Header -->
+        <header>
+            <div class="header-top">
+                <div class="worksheet-title-group">
+                    <h1>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="3 19 9 5 21 5 17 19 3 19"></polygon>
+                        </svg>
+                        Similarity of Polygons (Complete Sheet)
+                    </h1>
+                    <p>Unit Three: Geometry • Mathematics - Third Preparatory / Secondary</p>
+                </div>
+                <div class="branding-badges">
+                    <div class="teacher-badge">
+                        <span>👨‍🏫 Mr Ahmed Abd E Motaal</span>
+                        <span>|</span>
+                        <span>📞 01019775590</span>
+                    </div>
+                    <a href="https://youtube.com/@mrmotaal?si=myKXUVJPjbDazSVJ" target="_blank" rel="noopener noreferrer" class="youtube-badge" title="Visit Mr Ahmed Abd E Motaal YouTube Channel">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        <span>YouTube: @mrMotaal</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="student-info-strip">
+                <div class="info-field name-field">
+                    <span>Student Name:</span>
+                    <span class="info-line"></span>
+                </div>
+                <div class="info-field">
+                    <span>Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / 202___</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Locked Toolbar -->
+        <div class="toolbar">
+            <div class="section-title" style="margin-bottom: 0;">
+                <div class="section-title-text">
+                    <span class="arrow-icon">►</span>
+                    <span>Part 1: Essay Questions, Proofs & Self-Evaluations (Questions 1 – 8)</span>
+                </div>
+                <div class="toolbar-actions">
+                    <button class="btn-3d primary" id="global-toggle-btn" onclick="toggleAllSolutions()">
+                        <span>👁️ Show All Solutions</span>
+                    </button>
+                    <button class="btn-3d emerald" onclick="window.print()">
+                        <span>🖨️ Print / Save PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Grid -->
+        <div class="questions-grid">
+
+            <!-- Question 1 (Example 1) -->
+            <div class="question-card" id="q1">
+                <div class="q-header">
+                    <span class="q-number">1</span>
+                    <span class="q-prompt-intro">In the given figure: Prove that the two polygons $ABCD$ and $EFGH$ are similar and write the similarity ratio of polygon $ABCD$ to polygon $EFGH$.</span>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 280" preserveAspectRatio="xMidYMid meet">
+                        <!-- Polygon ABCD -->
+                        <polygon points="60,250 240,170 240,35 150,35" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <!-- Right angle at C -->
+                        <polyline points="224,35 224,51 240,51" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <!-- Double arc at D -->
+                        <path d="M 143,55 A 22,22 0 0,0 172,35" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <path d="M 141,60 A 27,27 0 0,0 177,35" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <!-- Angle symbols at A and B -->
+                        <text x="73" y="238" class="measure-label">×</text>
+                        <text x="223" y="168" class="measure-label">*</text>
+                        <!-- Labels ABCD -->
+                        <text x="42" y="268" class="math-label">A</text>
+                        <text x="248" y="185" class="math-label">B</text>
+                        <text x="245" y="25" class="math-label">C</text>
+                        <text x="140" y="25" class="math-label">D</text>
+                        <!-- Side lengths ABCD -->
+                        <text x="195" y="25" class="measure-label" text-anchor="middle">6 cm</text>
+                        <text x="255" y="108" class="measure-label">9 cm</text>
+                        <text x="165" y="228" class="measure-label" text-anchor="middle" transform="rotate(-24 165,228)">12 cm</text>
+                        <text x="88" y="140" class="measure-label" text-anchor="middle" transform="rotate(-67 88,140)">15 cm</text>
+
+                        <!-- Polygon EFGH -->
+                        <polygon points="430,235 550,182 550,92 490,92" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <!-- Right angle at G -->
+                        <polyline points="536,92 536,106 550,106" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <!-- Double arc at H -->
+                        <path d="M 484,109 A 18,18 0 0,0 508,92" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <path d="M 482,114 A 23,23 0 0,0 513,92" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <!-- Angle symbols at E and F -->
+                        <text x="442" y="224" class="measure-label">×</text>
+                        <text x="534" y="180" class="measure-label">*</text>
+                        <!-- Labels EFGH -->
+                        <text x="412" y="252" class="math-label">E</text>
+                        <text x="558" y="195" class="math-label">F</text>
+                        <text x="555" y="82" class="math-label">G</text>
+                        <text x="480" y="82" class="math-label">H</text>
+                        <!-- Side lengths EFGH -->
+                        <text x="520" y="82" class="measure-label" text-anchor="middle">4 cm</text>
+                        <text x="565" y="142" class="measure-label">6 cm</text>
+                        <text x="502" y="224" class="measure-label" text-anchor="middle" transform="rotate(-24 502,224)">8 cm</text>
+                        <text x="442" y="162" class="measure-label" text-anchor="middle" transform="rotate(-67 442,162)">10 cm</text>
+                    </svg>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-1" onclick="toggleSolution(1)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-1">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q1</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li>In the two polygons $ABCD$ and $EFGH$:
+                            $$m(\angle A) = m(\angle E), \quad m(\angle B) = m(\angle F), \quad m(\angle C) = m(\angle G), \quad m(\angle D) = m(\angle H)$$
+                        </li>
+                        <li>Calculating the ratios of the lengths of corresponding sides:
+                            $$\dfrac{AB}{EF} = \dfrac{12}{8} = \dfrac{3}{2}, \quad \dfrac{BC}{FG} = \dfrac{9}{6} = \dfrac{3}{2}, \quad \dfrac{CD}{GH} = \dfrac{6}{4} = \dfrac{3}{2}, \quad \dfrac{DA}{HE} = \dfrac{15}{10} = \dfrac{3}{2}$$
+                        </li>
+                        <li>Since $\dfrac{AB}{EF} = \dfrac{BC}{FG} = \dfrac{CD}{GH} = \dfrac{DA}{HE} = \dfrac{3}{2}$ and corresponding angles are equal in measure:
+                            $$\therefore \text{Polygon } ABCD \sim \text{Polygon } EFGH$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">Similarity Ratio = 3/2</div>
+                </div>
+            </div>
+
+            <!-- Question 2 (Self-Evaluation 1) -->
+            <div class="question-card" id="q2">
+                <div class="q-header">
+                    <span class="q-number">2</span>
+                    <span class="self-eval-tag">Self-Evaluation</span>
+                    <span class="q-prompt-intro">In the following figure: Prove that the two polygons are similar, and write the similarity ratio of polygon $ABCD$ to polygon $HLKJ$.</span>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 250" preserveAspectRatio="xMidYMid meet">
+                        <!-- Polygon ABCD (Trapezoid/Quad with 10, 5, 10, 5 and 92 deg) -->
+                        <polygon points="50,195 230,195 220,75 40,75" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <!-- Angles 92° at D and B -->
+                        <path d="M 40,95 A 20,20 0 0,0 60,75" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <path d="M 210,195 A 20,20 0 0,1 228,175" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <!-- Dots at A and C -->
+                        <circle cx="58" cy="185" r="3" fill="#0f172a"/>
+                        <circle cx="212" cy="85" r="3" fill="#0f172a"/>
+                        <!-- Labels ABCD -->
+                        <text x="32" y="212" class="math-label">A</text>
+                        <text x="238" y="212" class="math-label">B</text>
+                        <text x="228" y="68" class="math-label">C</text>
+                        <text x="25" y="68" class="math-label">D</text>
+                        <!-- Measures ABCD -->
+                        <text x="130" y="65" class="measure-label" text-anchor="middle">10 cm</text>
+                        <text x="140" y="215" class="measure-label" text-anchor="middle">10 cm</text>
+                        <text x="25" y="140" class="measure-label" text-anchor="middle">5 cm</text>
+                        <text x="248" y="140" class="measure-label">5 cm</text>
+                        <text x="58" y="98" class="measure-label">92°</text>
+                        <text x="182" y="188" class="measure-label">92°</text>
+
+                        <!-- Polygon HLKJ (Rotated/Scaled by 1/2: 5, 2.5, 5, 2.5) -->
+                        <polygon points="450,210 535,210 545,90 460,90" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <!-- Angles 92° at J and L -->
+                        <path d="M 452,190 A 18,18 0 0,1 470,210" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <path d="M 527,90 A 18,18 0 0,0 544,110" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <!-- Dots at H and K -->
+                        <circle cx="468" cy="100" r="3" fill="#0f172a"/>
+                        <circle cx="527" cy="200" r="3" fill="#0f172a"/>
+                        <!-- Labels HLKJ -->
+                        <text x="442" y="82" class="math-label">H</text>
+                        <text x="552" y="82" class="math-label">L</text>
+                        <text x="545" y="225" class="math-label">K</text>
+                        <text x="435" y="225" class="math-label">J</text>
+                        <!-- Measures HLKJ -->
+                        <text x="502" y="80" class="measure-label" text-anchor="middle">2.5 cm</text>
+                        <text x="492" y="228" class="measure-label" text-anchor="middle">2.5 cm</text>
+                        <text x="430" y="155" class="measure-label" text-anchor="middle">5 cm</text>
+                        <text x="565" y="155" class="measure-label">5 cm</text>
+                        <text x="505" y="112" class="measure-label">92°</text>
+                        <text x="468" y="202" class="measure-label">92°</text>
+                    </svg>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-2" onclick="toggleSolution(2)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-2">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q2</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li>In the two polygons $ABCD$ and $HLKJ$:
+                            $$m(\angle A) = m(\angle H), \quad m(\angle B) = m(\angle L) = 92^\circ, \quad m(\angle C) = m(\angle K), \quad m(\angle D) = m(\angle J) = 92^\circ$$
+                        </li>
+                        <li>Calculating the ratios of corresponding sides:
+                            $$\dfrac{AB}{HL} = \dfrac{5}{2.5} = 2, \quad \dfrac{BC}{LK} = \dfrac{10}{5} = 2, \quad \dfrac{CD}{KJ} = \dfrac{5}{2.5} = 2, \quad \dfrac{DA}{JH} = \dfrac{10}{5} = 2$$
+                        </li>
+                        <li>Since corresponding angles are equal in measure and corresponding sides are proportional:
+                            $$\therefore \text{Polygon } ABCD \sim \text{Polygon } HLKJ$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">Similarity Ratio = 2</div>
+                </div>
+            </div>
+
+            <!-- Question 3 (Example 2) -->
+            <div class="question-card" id="q3">
+                <div class="q-header">
+                    <span class="q-number">3</span>
+                    <span class="q-prompt-intro">In the given figure: If polygon $ABCD \sim \text{polygon } EFGH$:</span>
+                </div>
+
+                <div class="sub-questions">
+                    <div class="sub-q-item"><span class="sub-q-badge">1</span> Find: $m(\angle C)$ and $m(\angle H)$.</div>
+                    <div class="sub-q-item"><span class="sub-q-badge">2</span> Find the length of each of $\overline{FG}$ and $\overline{DC}$.</div>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 250" preserveAspectRatio="xMidYMid meet">
+                        <!-- Polygon ABCD -->
+                        <polygon points="80,75 80,195 290,195 190,55" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <polyline points="80,90 95,90 95,75" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <text x="62" y="75" class="math-label">A</text>
+                        <text x="62" y="210" class="math-label">B</text>
+                        <text x="300" y="210" class="math-label">C</text>
+                        <text x="185" y="42" class="math-label">D</text>
+                        <text x="20" y="140" class="measure-label">15√3 cm</text>
+                        <text x="185" y="218" class="measure-label" text-anchor="middle">30 cm</text>
+
+                        <!-- Polygon EFGH -->
+                        <polygon points="450,110 450,195 590,195 520,95" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <path d="M 450,175 A 20,20 0 0,1 470,195" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <path d="M 565,195 A 25,25 0 0,1 575,174" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <text x="432" y="110" class="math-label">E</text>
+                        <text x="432" y="210" class="math-label">F</text>
+                        <text x="600" y="210" class="math-label">G</text>
+                        <text x="515" y="82" class="math-label">H</text>
+                        <text x="395" y="160" class="measure-label">5√3 cm</text>
+                        <text x="462" y="182" class="measure-label">120°</text>
+                        <text x="542" y="188" class="measure-label">45°</text>
+                        <text x="515" y="115" class="measure-label">?</text>
+                        <text x="572" y="140" class="measure-label">10√2 cm</text>
+                    </svg>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-3" onclick="toggleSolution(3)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-3">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q3</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li><strong>First:</strong> Since polygon $ABCD \sim \text{polygon } EFGH$:
+                            $$m(\angle A) = m(\angle E) = 90^\circ, \quad m(\angle B) = m(\angle F) = 120^\circ, \quad m(\angle C) = m(\angle G) = 45^\circ$$
+                            $$m(\angle D) = m(\angle H) = 360^\circ - (90^\circ + 120^\circ + 45^\circ) = 105^\circ$$
+                        </li>
+                        <li><strong>Second:</strong> Since polygon $ABCD \sim \text{polygon } EFGH$:
+                            $$\dfrac{AB}{EF} = \dfrac{BC}{FG} \implies \dfrac{15\sqrt{3}}{5\sqrt{3}} = \dfrac{30}{FG} \implies FG = \dfrac{5\sqrt{3} \times 30}{15\sqrt{3}} = 10\text{ cm}$$
+                            $$\dfrac{AB}{EF} = \dfrac{DC}{HG} \implies \dfrac{15\sqrt{3}}{5\sqrt{3}} = \dfrac{DC}{10\sqrt{2}} \implies DC = \dfrac{15\sqrt{3} \times 10\sqrt{2}}{5\sqrt{3}} = 30\sqrt{2}\text{ cm}$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">m(∠C) = 45°, m(∠H) = 105°, FG = 10 cm, DC = 30√2 cm</div>
+                </div>
+            </div>
+
+            <!-- Question 4 (Self-Evaluation 2) -->
+            <div class="question-card" id="q4">
+                <div class="q-header">
+                    <span class="q-number">4</span>
+                    <span class="self-eval-tag">Self-Evaluation</span>
+                    <span class="q-prompt-intro">In the following figure: If polygon $ABCD \sim \text{polygon } EFGH$:</span>
+                </div>
+
+                <div class="sub-questions">
+                    <div class="sub-q-item"><span class="sub-q-badge">1</span> Find: $m(\angle C)$ and $m(\angle D)$.</div>
+                    <div class="sub-q-item"><span class="sub-q-badge">2</span> Find the length of each of $\overline{FG}$ and $\overline{AD}$.</div>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 250" preserveAspectRatio="xMidYMid meet">
+                        <!-- Polygon ABCD -->
+                        <polygon points="80,75 50,195 260,195 210,75" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <polyline points="68,195 72,180 55,176" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <text x="65" y="65" class="math-label">A</text>
+                        <text x="32" y="210" class="math-label">B</text>
+                        <text x="270" y="210" class="math-label">C</text>
+                        <text x="215" y="65" class="math-label">D</text>
+                        <text x="85" y="98" class="measure-label">75°</text>
+                        <text x="192" y="98" class="measure-label">?</text>
+                        <text x="235" y="188" class="measure-label">?</text>
+                        <text x="155" y="218" class="measure-label" text-anchor="middle">16√2 cm</text>
+
+                        <!-- Polygon EFGH -->
+                        <polygon points="450,105 430,195 570,195 535,105" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <text x="435" y="95" class="math-label">E</text>
+                        <text x="412" y="210" class="math-label">F</text>
+                        <text x="580" y="210" class="math-label">G</text>
+                        <text x="540" y="95" class="math-label">H</text>
+                        <text x="380" y="155" class="measure-label">4√3 cm</text>
+                        <text x="490" y="95" class="measure-label" text-anchor="middle">8√2 cm</text>
+                        <text x="505" y="128" class="measure-label">135°</text>
+                        <text x="568" y="155" class="measure-label">4√2 cm</text>
+                    </svg>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-4" onclick="toggleSolution(4)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-4">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q4</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li><strong>1. Finding $m(\angle D)$ and $m(\angle C)$:</strong>
+                            Since polygon $ABCD \sim \text{polygon } EFGH$:
+                            $$m(\angle D) = m(\angle H) = 135^\circ$$
+                            Since $m(\angle A) = 75^\circ$ and $m(\angle B) = 90^\circ$, the sum of interior angles of quadrilateral $ABCD$ is $360^\circ$:
+                            $$m(\angle C) = 360^\circ - (75^\circ + 90^\circ + 135^\circ) = 60^\circ$$
+                        </li>
+                        <li><strong>2. Finding lengths of $\overline{FG}$ and $\overline{AD}$:</strong>
+                            From the similarity ratio of corresponding sides:
+                            $$\dfrac{AB}{EF} = \dfrac{BC}{FG} = \dfrac{CD}{GH} = \dfrac{AD}{EH}$$
+                            Since $BC = 16\sqrt{2}\text{ cm}$ and similarity scale factor $k = 2$ (or using $GH = 4\sqrt{2}\text{ cm}$ and $EH = 8\sqrt{2}\text{ cm}$):
+                            $$AD = 2 \times EH = 2 \times 8\sqrt{2} = 16\sqrt{2}\text{ cm}, \quad FG = 8\sqrt{2}\text{ cm}$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">m(∠D) = 135°, m(∠C) = 60°, AD = 16√2 cm</div>
+                </div>
+            </div>
+
+            <!-- Question 5 (Example 3) -->
+            <div class="question-card" id="q5">
+                <div class="q-header">
+                    <span class="q-number">5</span>
+                    <span class="q-prompt-intro">In each of the following, prove that the two polygons are similar, and write the similarity ratio:</span>
+                </div>
+
+                <div class="sub-questions">
+                    <div class="sub-q-item"><span class="sub-q-badge">1</span> Rectangle $ABCD$ to rectangle $XYZM$.</div>
+                    <div class="sub-q-item"><span class="sub-q-badge">2</span> Rhombus $ABCD$ to rhombus $EFGH$.</div>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 230" preserveAspectRatio="xMidYMid meet">
+                        <!-- Part 1: Rectangles ABCD (4x6) and XYZM (2x3) -->
+                        <rect x="35" y="35" width="90" height="135" fill="none" stroke="#b91c7c" stroke-width="2.3"/>
+                        <polyline points="35,48 48,48 48,35" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <polyline points="112,35 112,48 125,48" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <polyline points="35,157 48,157 48,170" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <polyline points="112,170 112,157 125,157" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <text x="20" y="30" class="math-label">D</text>
+                        <text x="130" y="30" class="math-label">C</text>
+                        <text x="130" y="185" class="math-label">B</text>
+                        <text x="20" y="185" class="math-label">A</text>
+                        <text x="80" y="25" class="measure-label" text-anchor="middle">4 cm</text>
+                        <text x="135" y="108" class="measure-label">6 cm</text>
+
+                        <!-- Rectangle XYZM -->
+                        <rect x="200" y="75" width="90" height="60" fill="none" stroke="#b91c7c" stroke-width="2.3"/>
+                        <polyline points="200,87 212,87 212,75" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <polyline points="278,75 278,87 290,87" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <polyline points="200,123 212,123 212,135" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <polyline points="278,135 278,123 290,123" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <text x="185" y="70" class="math-label">Z</text>
+                        <text x="295" y="70" class="math-label">Y</text>
+                        <text x="295" y="150" class="math-label">X</text>
+                        <text x="185" y="150" class="math-label">M</text>
+                        <text x="245" y="65" class="measure-label" text-anchor="middle">3 cm</text>
+                        <text x="300" y="110" class="measure-label">2 cm</text>
+
+                        <!-- Part 2: Rhombus ABCD (3cm, D=110) and Rhombus EFGH (5cm, G=70) -->
+                        <polygon points="410,165 495,165 525,80 440,80" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <path d="M 434,98 A 20,20 0 0,0 460,80" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <text x="395" y="182" class="math-label">A</text>
+                        <text x="502" y="182" class="math-label">B</text>
+                        <text x="532" y="75" class="math-label">C</text>
+                        <text x="428" y="75" class="math-label">D</text>
+                        <text x="442" y="112" class="measure-label">110°</text>
+                        <text x="452" y="185" class="measure-label" text-anchor="middle">3 cm</text>
+
+                        <polygon points="585,175 695,175 735,60 625,60" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <path d="M 712,60 A 22,22 0 0,0 727,82" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <text x="570" y="192" class="math-label">E</text>
+                        <text x="702" y="192" class="math-label">F</text>
+                        <text x="740" y="55" class="math-label">G</text>
+                        <text x="612" y="55" class="math-label">H</text>
+                        <text x="692" y="88" class="measure-label">70°</text>
+                        <text x="640" y="195" class="measure-label" text-anchor="middle">5 cm</text>
+                    </svg>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-5" onclick="toggleSolution(5)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-5">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q5</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li><strong>1. Rectangle $ABCD$ to rectangle $XYZM$:</strong>
+                            All interior angles of both rectangles equal $90^\circ$.
+                            $$\dfrac{BC}{YZ} = \dfrac{6}{3} = 2, \quad \dfrac{CD}{ZM} = \dfrac{4}{2} = 2 \implies \dfrac{BC}{YZ} = \dfrac{CD}{ZM} = 2$$
+                            $$\therefore \text{Rectangle } ABCD \sim \text{Rectangle } XYZM \quad (\text{Similarity Ratio } = 2)$$
+                        </li>
+                        <li><strong>2. Rhombus $ABCD$ to rhombus $EFGH$:</strong>
+                            In rhombus $ABCD$: $m(\angle C) = 180^\circ - 110^\circ = 70^\circ = m(\angle G)$, and $m(\angle D) = m(\angle H) = 110^\circ$.
+                            Ratio of sides:
+                            $$\dfrac{AB}{EF} = \dfrac{BC}{FG} = \dfrac{CD}{GH} = \dfrac{DA}{HE} = \dfrac{3}{5}$$
+                            $$\therefore \text{Rhombus } ABCD \sim \text{Rhombus } EFGH \quad \left(\text{Similarity Ratio } = \dfrac{3}{5}\right)$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">Part 1 Ratio = 2, Part 2 Ratio = 3/5</div>
+                </div>
+            </div>
+
+            <!-- Question 6 (Self-Evaluation 3) -->
+            <div class="question-card" id="q6">
+                <div class="q-header">
+                    <span class="q-number">6</span>
+                    <span class="self-eval-tag">Self-Evaluation</span>
+                    <span class="q-prompt-intro">In each of the following, prove that the two polygons are similar, and write the similarity ratio:</span>
+                </div>
+
+                <div class="sub-questions">
+                    <div class="sub-q-item"><span class="sub-q-badge">1</span> Square $ABCD$ to square $LMNO$.</div>
+                    <div class="sub-q-item"><span class="sub-q-badge">2</span> Parallelogram $ABCD$ to parallelogram $PQRS$.</div>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 230" preserveAspectRatio="xMidYMid meet">
+                        <!-- Part 1: Squares ABCD (15 cm) and LMNO (6 cm) -->
+                        <rect x="35" y="45" width="110" height="110" fill="none" stroke="#b91c7c" stroke-width="2.3"/>
+                        <polyline points="35,58 48,58 48,45" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <polyline points="132,45 132,58 145,58" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <polyline points="35,142 48,142 48,155" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <polyline points="132,155 132,142 145,142" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <text x="20" y="38" class="math-label">D</text>
+                        <text x="150" y="38" class="math-label">C</text>
+                        <text x="150" y="172" class="math-label">B</text>
+                        <text x="20" y="172" class="math-label">A</text>
+                        <text x="90" y="178" class="measure-label" text-anchor="middle">15 cm</text>
+
+                        <rect x="210" y="80" width="75" height="75" fill="none" stroke="#b91c7c" stroke-width="2.3"/>
+                        <polyline points="210,92 222,92 222,80" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <polyline points="273,80 273,92 285,92" fill="none" stroke="#b91c7c" stroke-width="1.6"/>
+                        <text x="195" y="74" class="math-label">O</text>
+                        <text x="290" y="74" class="math-label">N</text>
+                        <text x="290" y="172" class="math-label">M</text>
+                        <text x="195" y="172" class="math-label">L</text>
+                        <text x="247" y="178" class="measure-label" text-anchor="middle">6 cm</text>
+
+                        <!-- Part 2: Parallelograms ABCD and PQRS -->
+                        <polygon points="395,155 495,155 535,65 435,65" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <path d="M 473,155 A 22,22 0 0,1 485,135" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <text x="380" y="172" class="math-label">A</text>
+                        <text x="502" y="172" class="math-label">B</text>
+                        <text x="542" y="60" class="math-label">C</text>
+                        <text x="422" y="60" class="math-label">D</text>
+                        <text x="445" y="178" class="measure-label" text-anchor="middle">8 cm</text>
+                        <text x="392" y="105" class="measure-label">6 cm</text>
+                        <text x="452" y="142" class="measure-label">120°</text>
+
+                        <polygon points="600,155 680,155 710,85 630,85" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <path d="M 622,155 A 22,22 0 0,0 610,135" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <text x="585" y="172" class="math-label">P</text>
+                        <text x="685" y="172" class="math-label">Q</text>
+                        <text x="715" y="80" class="math-label">R</text>
+                        <text x="618" y="80" class="math-label">S</text>
+                        <text x="640" y="178" class="measure-label" text-anchor="middle">6 cm</text>
+                        <text x="582" y="115" class="measure-label">4.5 cm</text>
+                        <text x="622" y="145" class="measure-label">60°</text>
+                    </svg>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-6" onclick="toggleSolution(6)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-6">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q6</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li><strong>1. Square $ABCD$ to square $LMNO$:</strong>
+                            All interior angles of both squares are $90^\circ$, and all sides of each square are equal:
+                            $$\dfrac{AB}{LM} = \dfrac{BC}{MN} = \dfrac{CD}{NO} = \dfrac{DA}{OL} = \dfrac{15}{6} = \dfrac{5}{2}$$
+                            $$\therefore \text{Square } ABCD \sim \text{Square } LMNO \quad \left(\text{Similarity Ratio } = \dfrac{5}{2}\right)$$
+                        </li>
+                        <li><strong>2. Parallelogram $ABCD$ to parallelogram $PQRS$:</strong>
+                            In parallelogram $ABCD$: $m(\angle A) = 180^\circ - 120^\circ = 60^\circ = m(\angle P)$, and $m(\angle B) = m(\angle Q) = 120^\circ$.
+                            $$\dfrac{AB}{PQ} = \dfrac{8}{6} = \dfrac{4}{3}, \quad \dfrac{AD}{PS} = \dfrac{6}{4.5} = \dfrac{4}{3}$$
+                            $$\therefore \text{Parallelogram } ABCD \sim \text{Parallelogram } PQRS \quad \left(\text{Similarity Ratio } = \dfrac{4}{3}\right)$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">Part 1 Ratio = 5/2, Part 2 Ratio = 4/3</div>
+                </div>
+            </div>
+
+            <!-- Question 7 (Example 4) -->
+            <div class="question-card" id="q7">
+                <div class="q-header">
+                    <span class="q-number">7</span>
+                    <span class="q-prompt-intro">In the given figure: If polygon $ABCD \sim \text{polygon } EFGH$, and $\dfrac{\text{Perimeter of polygon } ABCD}{\text{Perimeter of polygon } EFGH} = \dfrac{3}{2}$, find the value of each of: $x$, $y$, and $z$.</span>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 220" preserveAspectRatio="xMidYMid meet">
+                        <!-- Polygon ABCD -->
+                        <polygon points="40,55 310,55 200,175 80,175" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <text x="25" y="50" class="math-label">A</text>
+                        <text x="62" y="192" class="math-label">B</text>
+                        <text x="205" y="192" class="math-label">C</text>
+                        <text x="320" y="50" class="math-label">D</text>
+                        <text x="38" y="125" class="measure-label" transform="rotate(72 38,125)">6 cm</text>
+                        <text x="140" y="198" class="measure-label" text-anchor="middle">(y + 3) cm</text>
+                        <text x="275" y="130" class="measure-label" text-anchor="middle" transform="rotate(-47 275,130)">(2x + 1) cm</text>
+
+                        <!-- Polygon EFGH -->
+                        <polygon points="430,65 650,65 560,165 465,165" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <text x="415" y="60" class="math-label">E</text>
+                        <text x="450" y="182" class="math-label">F</text>
+                        <text x="565" y="182" class="math-label">G</text>
+                        <text x="660" y="60" class="math-label">H</text>
+                        <text x="430" y="125" class="measure-label" transform="rotate(71 430,125)">z cm</text>
+                        <text x="512" y="186" class="measure-label" text-anchor="middle">5 cm</text>
+                        <text x="625" y="128" class="measure-label" text-anchor="middle" transform="rotate(-48 625,128)">(x + 2) cm</text>
+                    </svg>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-7" onclick="toggleSolution(7)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-7">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q7</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li>Since polygon $ABCD \sim \text{polygon } EFGH$ and $\dfrac{\text{Perimeter of } ABCD}{\text{Perimeter of } EFGH} = \dfrac{3}{2}$:
+                            $$\dfrac{AB}{EF} = \dfrac{BC}{FG} = \dfrac{CD}{GH} = \dfrac{3}{2}$$
+                        </li>
+                        <li><strong>Finding $z$:</strong>
+                            $$\dfrac{AB}{EF} = \dfrac{3}{2} \implies \dfrac{6}{z} = \dfrac{3}{2} \implies z = \dfrac{2 \times 6}{3} = 4$$
+                        </li>
+                        <li><strong>Finding $y$:</strong>
+                            $$\dfrac{BC}{FG} = \dfrac{3}{2} \implies \dfrac{y + 3}{5} = \dfrac{3}{2} \implies y + 3 = 7.5 \implies y = 7.5 - 3 = 4.5$$
+                        </li>
+                        <li><strong>Finding $x$:</strong>
+                            $$\dfrac{CD}{GH} = \dfrac{3}{2} \implies \dfrac{2x + 1}{x + 2} = \dfrac{3}{2} \implies 4x + 2 = 3x + 6 \implies x = 4$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">x = 4, y = 4.5, z = 4</div>
+                </div>
+            </div>
+
+            <!-- Question 8 (Self-Evaluation 4) -->
+            <div class="question-card" id="q8">
+                <div class="q-header">
+                    <span class="q-number">8</span>
+                    <span class="self-eval-tag">Self-Evaluation</span>
+                    <span class="q-prompt-intro">In the following figure: If polygon $ABCD \sim \text{polygon } EFGH$, and $\dfrac{\text{Perimeter of } ABCD}{\text{Perimeter of } EFGH} = \dfrac{3}{4}$, find the value of each of $x$, $y$, and $z$.</span>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 240" preserveAspectRatio="xMidYMid meet">
+                        <!-- Polygon ABCD -->
+                        <polygon points="145,45 65,155 125,200 225,190" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <text x="142" y="35" class="math-label">A</text>
+                        <text x="45" y="160" class="math-label">B</text>
+                        <text x="118" y="220" class="math-label">C</text>
+                        <text x="235" y="200" class="math-label">D</text>
+                        <text x="72" y="98" class="measure-label">2z - 3</text>
+                        <text x="72" y="192" class="measure-label">x + 1</text>
+                        <text x="175" y="214" class="measure-label" text-anchor="middle">4.5</text>
+
+                        <!-- Polygon EFGH -->
+                        <polygon points="525,30 430,160 500,210 620,200" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <text x="522" y="20" class="math-label">E</text>
+                        <text x="410" y="165" class="math-label">F</text>
+                        <text x="492" y="230" class="math-label">G</text>
+                        <text x="630" y="210" class="math-label">H</text>
+                        <text x="462" y="95" class="measure-label">8</text>
+                        <text x="448" y="200" class="measure-label">2x</text>
+                        <text x="560" y="224" class="measure-label" text-anchor="middle">2y</text>
+                    </svg>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-8" onclick="toggleSolution(8)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-8">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q8</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li>Since polygon $ABCD \sim \text{polygon } EFGH$ and $\dfrac{\text{Perimeter of } ABCD}{\text{Perimeter of } EFGH} = \dfrac{3}{4}$:
+                            $$\dfrac{AB}{EF} = \dfrac{BC}{FG} = \dfrac{CD}{GH} = \dfrac{3}{4}$$
+                        </li>
+                        <li><strong>Finding $x$:</strong>
+                            $$\dfrac{BC}{FG} = \dfrac{3}{4} \implies \dfrac{x + 1}{2x} = \dfrac{3}{4} \implies 6x = 4x + 4 \implies 2x = 4 \implies x = 2$$
+                        </li>
+                        <li><strong>Finding $y$:</strong>
+                            $$\dfrac{CD}{GH} = \dfrac{3}{4} \implies \dfrac{4.5}{2y} = \dfrac{3}{4} \implies 6y = 18 \implies y = 3$$
+                        </li>
+                        <li><strong>Finding $z$:</strong>
+                            $$\dfrac{AB}{EF} = \dfrac{3}{4} \implies \dfrac{2z - 3}{8} = \dfrac{3}{4} \implies 2z - 3 = 6 \implies 2z = 9 \implies z = 4.5$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">x = 2, y = 3, z = 4.5</div>
+                </div>
+            </div>
+
+            <!-- Section 2 Header -->
+            <div class="section-title" style="margin-bottom: 0;">
+                <div class="section-title-text">
+                    <span class="arrow-icon">►</span>
+                    <span>Part 2: Choose the Correct Answer (Questions 9 – 15)</span>
+                </div>
+            </div>
+
+            <!-- Question 9 (Choose 1) -->
+            <div class="question-card" id="q9">
+                <div class="q-header">
+                    <span class="q-number">9</span>
+                    <span class="q-prompt-intro">In the following figure: What is the similarity ratio of polygon $KLMN$ to polygon $ABCD$?</span>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 230" preserveAspectRatio="xMidYMid meet">
+                        <!-- Polygon ABCD -->
+                        <polygon points="60,200 240,200 240,110 140,35" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <polyline points="225,200 225,185 240,185" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <path d="M 225,99 A 18,18 0 0,0 240,128" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <text x="45" y="218" class="math-label">B</text>
+                        <text x="248" y="218" class="math-label">C</text>
+                        <text x="248" y="108" class="math-label">D</text>
+                        <text x="135" y="25" class="math-label">A</text>
+                        <text x="80" y="115" class="measure-label">24</text>
+                        <text x="150" y="220" class="measure-label" text-anchor="middle">24</text>
+                        <text x="255" y="160" class="measure-label">12</text>
+                        <text x="195" y="65" class="measure-label">18</text>
+                        <text x="72" y="194" class="measure-label">×</text>
+                        <text x="138" y="58" class="measure-label">*</text>
+
+                        <!-- Polygon KLMN -->
+                        <polygon points="450,200 570,200 570,140 500,85" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <polyline points="558,200 558,188 570,188" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <path d="M 556,130 A 16,16 0 0,0 570,155" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <text x="435" y="218" class="math-label">L</text>
+                        <text x="578" y="218" class="math-label">M</text>
+                        <text x="578" y="138" class="math-label">N</text>
+                        <text x="495" y="75" class="math-label">K</text>
+                        <text x="460" y="142" class="measure-label">16</text>
+                        <text x="510" y="220" class="measure-label" text-anchor="middle">16</text>
+                        <text x="582" y="175" class="measure-label">8</text>
+                        <text x="542" y="108" class="measure-label">12</text>
+                        <text x="462" y="194" class="measure-label">×</text>
+                        <text x="498" y="108" class="measure-label">*</text>
+                    </svg>
+                </div>
+
+                <div class="choices-grid" data-correct="a">
+                    <button class="choice-btn" onclick="selectChoice(this, 'a')">
+                        <span class="choice-letter">(a)</span>
+                        <span>$\dfrac{2}{3}$</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'b')">
+                        <span class="choice-letter">(b)</span>
+                        <span>$\dfrac{3}{2}$</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'c')">
+                        <span class="choice-letter">(c)</span>
+                        <span>$\dfrac{1}{2}$</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'd')">
+                        <span class="choice-letter">(d)</span>
+                        <span>$\dfrac{3}{1}$</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-9" onclick="toggleSolution(9)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-9">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q9</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li>The similarity ratio of polygon $KLMN$ to polygon $ABCD$ is:
+                            $$\dfrac{KL}{AB} = \dfrac{LM}{BC} = \dfrac{MN}{CD} = \dfrac{NK}{DA}$$
+                        </li>
+                        <li>Substituting the given lengths:
+                            $$\dfrac{16}{24} = \dfrac{8}{12} = \dfrac{12}{18} = \dfrac{2}{3}$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">Correct Answer: (a) 2/3</div>
+                </div>
+            </div>
+
+            <!-- Question 10 (Choose 2) -->
+            <div class="question-card" id="q10">
+                <div class="q-header">
+                    <span class="q-number">10</span>
+                    <span class="q-prompt-intro">In the following figure: If rectangle $ABCD \sim \text{rectangle } EFGH$, what is the value of $x$?</span>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 200" preserveAspectRatio="xMidYMid meet">
+                        <!-- Rectangle ABCD -->
+                        <rect x="70" y="35" width="180" height="125" fill="none" stroke="#b91c7c" stroke-width="2.3"/>
+                        <polyline points="235,160 235,145 250,145" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <text x="52" y="30" class="math-label">A</text>
+                        <text x="255" y="30" class="math-label">D</text>
+                        <text x="255" y="178" class="math-label">C</text>
+                        <text x="52" y="178" class="math-label">B</text>
+                        <text x="160" y="25" class="measure-label" text-anchor="middle">36 cm</text>
+                        <text x="262" y="105" class="measure-label">27 cm</text>
+
+                        <!-- Rectangle EFGH -->
+                        <rect x="430" y="55" width="120" height="85" fill="none" stroke="#b91c7c" stroke-width="2.3"/>
+                        <polyline points="536,140 536,126 550,126" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <text x="412" y="50" class="math-label">E</text>
+                        <text x="555" y="50" class="math-label">H</text>
+                        <text x="555" y="158" class="math-label">G</text>
+                        <text x="412" y="158" class="math-label">F</text>
+                        <text x="490" y="162" class="measure-label" text-anchor="middle">24 cm</text>
+                        <text x="562" y="102" class="measure-label">x cm</text>
+                    </svg>
+                </div>
+
+                <div class="choices-grid" data-correct="c">
+                    <button class="choice-btn" onclick="selectChoice(this, 'a')">
+                        <span class="choice-letter">(a)</span>
+                        <span>27</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'b')">
+                        <span class="choice-letter">(b)</span>
+                        <span>9</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'c')">
+                        <span class="choice-letter">(c)</span>
+                        <span>18</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'd')">
+                        <span class="choice-letter">(d)</span>
+                        <span>24</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-10" onclick="toggleSolution(10)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-10">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q10</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li>Since rectangle $ABCD \sim \text{rectangle } EFGH$:
+                            $$\dfrac{BC}{FG} = \dfrac{CD}{GH}$$
+                        </li>
+                        <li>Given $BC = AD = 36\text{ cm}$, $FG = 24\text{ cm}$, $CD = 27\text{ cm}$, and $GH = x\text{ cm}$:
+                            $$\dfrac{36}{24} = \dfrac{27}{x} \implies x = \dfrac{24 \times 27}{36} = 18\text{ cm}$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">Correct Answer: (c) 18</div>
+                </div>
+            </div>
+
+            <!-- Question 11 (Choose 3) -->
+            <div class="question-card" id="q11">
+                <div class="q-header">
+                    <span class="q-number">11</span>
+                    <span class="q-prompt-intro">In the following figure: Parallelogram $ABCD \sim \text{parallelogram } KLMN$, what is the value of $x$?</span>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 200" preserveAspectRatio="xMidYMid meet">
+                        <!-- Parallelogram ABCD -->
+                        <polygon points="50,155 180,155 225,55 95,55" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <path d="M 87,73 A 20,20 0 0,0 115,55" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <text x="35" y="172" class="math-label">A</text>
+                        <text x="185" y="172" class="math-label">B</text>
+                        <text x="232" y="50" class="math-label">C</text>
+                        <text x="82" y="50" class="math-label">D</text>
+                        <text x="100" y="85" class="measure-label">130°</text>
+
+                        <!-- Parallelogram KLMN -->
+                        <polygon points="415,155 545,155 590,55 460,55" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <path d="M 568,55 A 22,22 0 0,0 581,75" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <text x="400" y="172" class="math-label">K</text>
+                        <text x="550" y="172" class="math-label">L</text>
+                        <text x="598" y="50" class="math-label">M</text>
+                        <text x="448" y="50" class="math-label">N</text>
+                        <text x="545" y="82" class="measure-label">x°</text>
+                    </svg>
+                </div>
+
+                <div class="choices-grid" data-correct="a">
+                    <button class="choice-btn" onclick="selectChoice(this, 'a')">
+                        <span class="choice-letter">(a)</span>
+                        <span>50</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'b')">
+                        <span class="choice-letter">(b)</span>
+                        <span>130</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'c')">
+                        <span class="choice-letter">(c)</span>
+                        <span>60</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'd')">
+                        <span class="choice-letter">(d)</span>
+                        <span>70</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-11" onclick="toggleSolution(11)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-11">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q11</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li>In parallelogram $ABCD$, consecutive angles are supplementary:
+                            $$m(\angle C) = 180^\circ - m(\angle D) = 180^\circ - 130^\circ = 50^\circ$$
+                        </li>
+                        <li>Since parallelogram $ABCD \sim \text{parallelogram } KLMN$:
+                            $$m(\angle M) = m(\angle C) = 50^\circ \implies x = 50$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">Correct Answer: (a) 50</div>
+                </div>
+            </div>
+
+            <!-- Question 12 (Choose 4) -->
+            <div class="question-card" id="q12">
+                <div class="q-header">
+                    <span class="q-number">12</span>
+                    <span class="q-prompt-intro">In the following figure: If $\dfrac{\text{Perimeter of square } ABCD}{\text{Perimeter of square } XYZM} = \dfrac{3}{2}$, what is the area of square $XYZM$?</span>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 190" preserveAspectRatio="xMidYMid meet">
+                        <!-- Square ABCD -->
+                        <rect x="160" y="30" width="110" height="110" fill="none" stroke="#b91c7c" stroke-width="2.3"/>
+                        <!-- Tick marks -->
+                        <line x1="212" y1="24" x2="212" y2="36" stroke="#b91c7c" stroke-width="1.8"/>
+                        <line x1="218" y1="24" x2="218" y2="36" stroke="#b91c7c" stroke-width="1.8"/>
+                        <line x1="212" y1="134" x2="212" y2="146" stroke="#b91c7c" stroke-width="1.8"/>
+                        <line x1="218" y1="134" x2="218" y2="146" stroke="#b91c7c" stroke-width="1.8"/>
+                        <line x1="154" y1="82" x2="166" y2="82" stroke="#b91c7c" stroke-width="1.8"/>
+                        <line x1="154" y1="88" x2="166" y2="88" stroke="#b91c7c" stroke-width="1.8"/>
+                        <line x1="264" y1="82" x2="276" y2="82" stroke="#b91c7c" stroke-width="1.8"/>
+                        <line x1="264" y1="88" x2="276" y2="88" stroke="#b91c7c" stroke-width="1.8"/>
+                        <text x="142" y="25" class="math-label">A</text>
+                        <text x="275" y="25" class="math-label">D</text>
+                        <text x="275" y="158" class="math-label">C</text>
+                        <text x="142" y="158" class="math-label">B</text>
+                        <text x="215" y="168" class="measure-label" text-anchor="middle">6 cm</text>
+
+                        <!-- Square XYZM -->
+                        <rect x="440" y="48" width="75" height="75" fill="none" stroke="#b91c7c" stroke-width="2.3"/>
+                        <line x1="477" y1="42" x2="477" y2="54" stroke="#b91c7c" stroke-width="1.8"/>
+                        <line x1="477" y1="117" x2="477" y2="129" stroke="#b91c7c" stroke-width="1.8"/>
+                        <line x1="434" y1="85" x2="446" y2="85" stroke="#b91c7c" stroke-width="1.8"/>
+                        <line x1="509" y1="85" x2="521" y2="85" stroke="#b91c7c" stroke-width="1.8"/>
+                        <text x="422" y="42" class="math-label">X</text>
+                        <text x="520" y="42" class="math-label">M</text>
+                        <text x="520" y="140" class="math-label">Z</text>
+                        <text x="422" y="140" class="math-label">Y</text>
+                    </svg>
+                </div>
+
+                <div class="choices-grid" data-correct="c">
+                    <button class="choice-btn" onclick="selectChoice(this, 'a')">
+                        <span class="choice-letter">(a)</span>
+                        <span>$36\text{ cm}^2$</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'b')">
+                        <span class="choice-letter">(b)</span>
+                        <span>$24\text{ cm}^2$</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'c')">
+                        <span class="choice-letter">(c)</span>
+                        <span>$16\text{ cm}^2$</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'd')">
+                        <span class="choice-letter">(d)</span>
+                        <span>$8\text{ cm}^2$</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-12" onclick="toggleSolution(12)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-12">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q12</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li>Since any two squares are similar, the ratio of their perimeters equals the ratio of their side lengths:
+                            $$\dfrac{BC}{YZ} = \dfrac{3}{2} \implies \dfrac{6}{YZ} = \dfrac{3}{2} \implies YZ = \dfrac{6 \times 2}{3} = 4\text{ cm}$$
+                        </li>
+                        <li>Area of square $XYZM = (YZ)^2 = 4^2 = 16\text{ cm}^2$.</li>
+                    </ul>
+                    <div class="final-answer-pill">Correct Answer: (c) 16 cm²</div>
+                </div>
+            </div>
+
+            <!-- Question 13 (Choose 5) -->
+            <div class="question-card" id="q13">
+                <div class="q-header">
+                    <span class="q-number">13</span>
+                    <span class="q-prompt-intro">In the following figure: If rhombus $ABCD \sim \text{rhombus } HLKJ$, what is the value of $x$?</span>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 200" preserveAspectRatio="xMidYMid meet">
+                        <!-- Rhombus ABCD -->
+                        <polygon points="60,155 165,155 210,55 105,55" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <path d="M 145,155 A 20,20 0 0,1 173,137" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <text x="45" y="172" class="math-label">A</text>
+                        <text x="172" y="172" class="math-label">B</text>
+                        <text x="218" y="50" class="math-label">C</text>
+                        <text x="90" y="50" class="math-label">D</text>
+                        <text x="122" y="138" class="measure-label">2x°</text>
+
+                        <!-- Rhombus HLKJ -->
+                        <polygon points="415,165 535,165 585,45 465,45" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <path d="M 562,45 A 22,22 0 0,0 576,66" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+                        <text x="400" y="182" class="math-label">H</text>
+                        <text x="542" y="182" class="math-label">L</text>
+                        <text x="592" y="40" class="math-label">K</text>
+                        <text x="452" y="40" class="math-label">J</text>
+                        <text x="542" y="75" class="measure-label">60°</text>
+                    </svg>
+                </div>
+
+                <div class="choices-grid" data-correct="a">
+                    <button class="choice-btn" onclick="selectChoice(this, 'a')">
+                        <span class="choice-letter">(a)</span>
+                        <span>60</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'b')">
+                        <span class="choice-letter">(b)</span>
+                        <span>120</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'c')">
+                        <span class="choice-letter">(c)</span>
+                        <span>100</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'd')">
+                        <span class="choice-letter">(d)</span>
+                        <span>80</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-13" onclick="toggleSolution(13)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-13">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q13</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li>In rhombus $HLKJ$, consecutive angles are supplementary:
+                            $$m(\angle L) = 180^\circ - m(\angle K) = 180^\circ - 60^\circ = 120^\circ$$
+                        </li>
+                        <li>Since rhombus $ABCD \sim \text{rhombus } HLKJ$:
+                            $$m(\angle B) = m(\angle L) \implies 2x = 120 \implies x = 60$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">Correct Answer: (a) 60</div>
+                </div>
+            </div>
+
+            <!-- Question 14 (Choose 6) -->
+            <div class="question-card" id="q14">
+                <div class="q-header">
+                    <span class="q-number">14</span>
+                    <span class="q-prompt-intro">In the following figure: If polygon $ABCD \sim \text{polygon } EBHG$, what is the value of $x$?</span>
+                </div>
+
+                <div class="figure-container">
+                    <svg class="geometry-svg" viewBox="0 0 760 250" preserveAspectRatio="xMidYMid meet">
+                        <!-- Outer Polygon ABCD -->
+                        <polygon points="180,215 480,215 480,45 240,45" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <polyline points="465,215 465,200 480,200" fill="none" stroke="#b91c7c" stroke-width="1.8"/>
+                        <!-- Inner Polygon EBHG -->
+                        <polyline points="285,215 325,115 480,115" fill="none" stroke="#b91c7c" stroke-width="2.3" stroke-linejoin="round"/>
+                        <!-- Parallel arrows on DC and GH -->
+                        <polyline points="365,39 353,45 365,51" fill="none" stroke="#b91c7c" stroke-width="2"/>
+                        <polyline points="410,109 398,115 410,121" fill="none" stroke="#b91c7c" stroke-width="2"/>
+                        <!-- Labels -->
+                        <text x="165" y="232" class="math-label">A</text>
+                        <text x="278" y="235" class="math-label">E</text>
+                        <text x="485" y="232" class="math-label">B</text>
+                        <text x="488" y="120" class="math-label">H</text>
+                        <text x="485" y="38" class="math-label">C</text>
+                        <text x="230" y="38" class="math-label">D</text>
+                        <text x="315" y="108" class="math-label">G</text>
+                        <!-- Measures -->
+                        <text x="360" y="34" class="measure-label" text-anchor="middle">6 cm</text>
+                        <text x="405" y="104" class="measure-label" text-anchor="middle">4 cm</text>
+                        <text x="385" y="235" class="measure-label" text-anchor="middle">5 cm</text>
+                        <text x="232" y="205" class="measure-label" text-anchor="middle">x cm</text>
+                    </svg>
+                </div>
+
+                <div class="choices-grid" data-correct="b">
+                    <button class="choice-btn" onclick="selectChoice(this, 'a')">
+                        <span class="choice-letter">(a)</span>
+                        <span>5</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'b')">
+                        <span class="choice-letter">(b)</span>
+                        <span>2.5</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'c')">
+                        <span class="choice-letter">(c)</span>
+                        <span>7.5</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'd')">
+                        <span class="choice-letter">(d)</span>
+                        <span>4</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-14" onclick="toggleSolution(14)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-14">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q14</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li>Since polygon $ABCD \sim \text{polygon } EBHG$:
+                            $$\dfrac{AB}{EB} = \dfrac{CD}{HG}$$
+                        </li>
+                        <li>Substitute $AB = x + 5$, $EB = 5\text{ cm}$, $CD = 6\text{ cm}$, and $HG = 4\text{ cm}$:
+                            $$\dfrac{x + 5}{5} = \dfrac{6}{4} \implies x + 5 = \dfrac{5 \times 6}{4} = 7.5 \implies x = 7.5 - 5 = 2.5\text{ cm}$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">Correct Answer: (b) 2.5</div>
+                </div>
+            </div>
+
+            <!-- Question 15 (Choose 7) -->
+            <div class="question-card" id="q15">
+                <div class="q-header">
+                    <span class="q-number">15</span>
+                    <span class="q-prompt-intro">Two similar polygons, the ratio between the lengths of two corresponding sides is $2 : 3$, and the perimeter of the smaller polygon is $34\text{ cm}$. What is the perimeter of the larger polygon?</span>
+                </div>
+
+                <div class="choices-grid" data-correct="c">
+                    <button class="choice-btn" onclick="selectChoice(this, 'a')">
+                        <span class="choice-letter">(a)</span>
+                        <span>$17\text{ cm}$</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'b')">
+                        <span class="choice-letter">(b)</span>
+                        <span>$34\text{ cm}$</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'c')">
+                        <span class="choice-letter">(c)</span>
+                        <span>$51\text{ cm}$</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                    <button class="choice-btn" onclick="selectChoice(this, 'd')">
+                        <span class="choice-letter">(d)</span>
+                        <span>$68\text{ cm}$</span>
+                        <span class="choice-status-badge"></span>
+                    </button>
+                </div>
+
+                <div class="card-actions">
+                    <span class="workspace-label">📝 Student Answer & Proof:</span>
+                    <button class="btn-3d primary" id="btn-sol-15" onclick="toggleSolution(15)">
+                        <span>💡 Show Solution</span>
+                    </button>
+                </div>
+
+                <div class="workspace">
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                    <div class="writing-line"></div>
+                </div>
+
+                <div class="solution-box" id="sol-15">
+                    <div class="solution-header">
+                        <span>Solution & Mathematical Proof</span>
+                        <span>Q15</span>
+                    </div>
+                    <ul class="solution-steps">
+                        <li>The ratio between the perimeters of two similar polygons equals the ratio between the lengths of any two corresponding sides:
+                            $$\dfrac{\text{Perimeter of smaller polygon}}{\text{Perimeter of larger polygon}} = \dfrac{2}{3}$$
+                        </li>
+                        <li>Given the perimeter of the smaller polygon is $34\text{ cm}$:
+                            $$\dfrac{34}{\text{Perimeter of larger polygon}} = \dfrac{2}{3} \implies \text{Perimeter of larger polygon} = \dfrac{34 \times 3}{2} = 51\text{ cm}$$
+                        </li>
+                    </ul>
+                    <div class="final-answer-pill">Correct Answer: (c) 51 cm</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Locked Footer -->
+        <footer>
+            <div class="footer-info">
+                <span>📐 Similarity of Polygons (Complete Sheet)</span>
+                <span>•</span>
+                <span>👨‍🏫 Mr Ahmed Abd E Motaal (📞 01019775590)</span>
+            </div>
+            <a href="https://youtube.com/@mrmotaal?si=myKXUVJPjbDazSVJ" target="_blank" rel="noopener noreferrer" class="youtube-badge" title="Subscribe on YouTube: @mrMotaal">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span>YouTube: @mrMotaal</span>
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        const TOTAL_QUESTIONS = 15;
+        let allSolutionsVisible = false;
+
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof renderMathInElement === "function") {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+        });
+
+        function selectChoice(buttonEl, chosenOption) {
+            const parentGrid = buttonEl.closest('.choices-grid');
+            const correctOption = parentGrid.getAttribute('data-correct');
+            const allButtons = parentGrid.querySelectorAll('.choice-btn');
+
+            allButtons.forEach(btn => {
+                btn.classList.remove('selected-correct', 'selected-wrong');
+                const badge = btn.querySelector('.choice-status-badge');
+                if (badge) badge.textContent = '';
+            });
+
+            const badge = buttonEl.querySelector('.choice-status-badge');
+            if (chosenOption === correctOption) {
+                buttonEl.classList.add('selected-correct');
+                if (badge) badge.textContent = '✓ Correct';
+            } else {
+                buttonEl.classList.add('selected-wrong');
+                if (badge) badge.textContent = '✗ Try Again';
+            }
+        }
+
+        function toggleSolution(qNum) {
+            const solBox = document.getElementById('sol-' + qNum);
+            const btn = document.getElementById('btn-sol-' + qNum);
+            const isShowing = solBox.classList.toggle('show');
+
+            if (isShowing) {
+                btn.classList.add('active');
+                btn.innerHTML = '<span>🔼 Hide Solution</span>';
+            } else {
+                btn.classList.remove('active');
+                btn.innerHTML = '<span>💡 Show Solution</span>';
+            }
+        }
+
+        function toggleAllSolutions() {
+            allSolutionsVisible = !allSolutionsVisible;
+            const globalBtn = document.getElementById('global-toggle-btn');
+
+            for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+                const solBox = document.getElementById('sol-' + i);
+                const btn = document.getElementById('btn-sol-' + i);
+                if (!solBox || !btn) continue;
+
+                if (allSolutionsVisible) {
+                    solBox.classList.add('show');
+                    btn.classList.add('active');
+                    btn.innerHTML = '<span>🔼 Hide Solution</span>';
+                } else {
+                    solBox.classList.remove('show');
+                    btn.classList.remove('active');
+                    btn.innerHTML = '<span>💡 Show Solution</span>';
+                }
+            }
+
+            if (globalBtn) {
+                if (allSolutionsVisible) {
+                    globalBtn.classList.add('active');
+                    globalBtn.innerHTML = '<span>🙈 Hide All Solutions</span>';
+                } else {
+                    globalBtn.classList.remove('active');
+                    globalBtn.innerHTML = '<span>👁️ Show All Solutions</span>';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
