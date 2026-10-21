@@ -2073,6 +2073,25 @@
         const TOTAL_QUESTIONS = 15;
         let allSolutionsVisible = false;
 
+document.addEventListener("DOMContentLoaded", function () {
+    // ضبط عدد الأسطر لجميع الأسئلة تلقائياً (غير الرقم 16 لأي عدد تريده مستقبلاً)
+    document.querySelectorAll('.workspace').forEach(ws => {
+        ws.innerHTML = '<div class="writing-line"></div>'.repeat(16);
+    });
+
+    if (typeof renderMathInElement === "function") {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false }
+            ],
+            throwOnError: false
+        });
+    }
+});
+
+
+
         document.addEventListener("DOMContentLoaded", function () {
             if (typeof renderMathInElement === "function") {
                 renderMathInElement(document.body, {
